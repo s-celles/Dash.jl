@@ -206,6 +206,7 @@ module ComponentPackages
                 components = ComponentPackages.load_package_components(package.name)
                 for component in values(components)
                     push!(components_code, make_component(package, component))
+                    
                 end
             end            
         end

@@ -13,6 +13,11 @@ styles = (
 
 app = dash("Dash Layout", external_stylesheets=external_stylesheets) 
 app.layout = html_div() do
+        html_center_test("I'm center 1"),
+        html_center_test(id = "center2", html_div("I'm center 2")),
+        html_center(id = "center3") do  
+            html_h2("I'm center 3")
+        end,
         dcc_graph(
             id = "basic-interactions",
             figure = (
@@ -39,13 +44,15 @@ app.layout = html_div() do
                 layout = (clickmode = "event+select",)
             )
         ),
-        html_div(className="three columns") do
-            dcc_markdown() do
+        html_div(className="three columns", 
+            [
+            dcc_markdown(
                 """**Hover Data**
                 Mouse over values in the graph."""
-            end,
+            ),
             html_pre(id="hover-data", style=styles.pre)
-        end,
+            ]
+        ),
         html_div(className="three columns") do
             dcc_markdown() do
                 """**Click Data**

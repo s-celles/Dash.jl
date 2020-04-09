@@ -5,6 +5,7 @@ include("ComponentPackages.jl")
 include("ComponentMetas.jl")
 include("Components.jl")
 include("Front.jl")
+include("div_test.jl")
 
 import .ComponentPackages
 import .Front
